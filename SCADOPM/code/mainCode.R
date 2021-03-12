@@ -17,18 +17,14 @@
 
 fit.SCADOPM <- function(Y, X, LAMBDA, ncores=1, test, train, IndMa){
   
-  
-  
+  library('ncvreg')
+  library('gcdnet')
   library(parallel)
-  library(matrixcalc)
-  library(Hmisc)
   library(Matrix)
   library(compiler)
   library(foreach)
-  library(doSNOW)
-  library(matrixcalc)
-  library(mvtnorm)
-  library(sn)
+  library(glmnet)
+  
   
   
   matrix_prod <- function(x, beta, m){
