@@ -19,16 +19,12 @@ fit.ALASSOOPM <- function(Y, X, LAMBDA, ncores, test, train, IndMa){
   
   
   
+  library('ncvreg')
+  library('gcdnet')
   library(parallel)
-  library(matrixcalc)
-  library(Hmisc)
   library(Matrix)
   library(compiler)
   library(foreach)
-  library(doSNOW)
-  library(matrixcalc)
-  library(mvtnorm)
-  library(sn)
   library(glmnet)
   
   
