@@ -9,12 +9,13 @@
 #' @param ncores is to signify number of cores for parallelization
 #' @param test is the index vector testing set
 #' @param train is the index vector training set
+#' @param IndMa is the number of Macrovariables
 
-#' @return fit.LASSOOPM returns a list of errors (prediction and estimation in that order) and the coefficients \cr
+#' @return fit.RAWOPM returns a list of errors (prediction and estimation in that order) and the coefficients \cr
 
 
 
-fit.LASSOOPM <- function(Y, X, LAMBDA, ncores, test, train){
+fit.RAWOPM <- function(Y, X, LAMBDA, ncores, test, train, IndMa){
   
   library('ncvreg')
   library('gcdnet')
@@ -173,7 +174,7 @@ fit.LASSOOPM <- function(Y, X, LAMBDA, ncores, test, train){
       if(d<=IndMa)
       {
         g[[4]] <- 0
-        h <- mcmapply(fun1, m[d:IndMa, 1], m[d:indMa, 2], MoreArgs = list(G = g), mc.cores=ncores)
+        h <- mcmapply(fun1, m[d:IndMa, 1], m[d:IndMa, 2], MoreArgs = list(G = g), mc.cores=ncores)
         
         #print(c(lambda,d))
         h <- unlist(h)
@@ -222,6 +223,47 @@ fit.LASSOOPM <- function(Y, X, LAMBDA, ncores, test, train){
   ##################################################################################
   ##################################################################################
   
+  # x <- X[test, ]  
+  # y <- Y[test]          
+  # y <- as.vector(y)
+  # xte <- X[train,]  
+  # yte <- Y[train]   
+  # k=1
+  # 
+  # xTRN <- xte  
+  # yTRN <- yte  
+  # 
+  # xTST <- x 
+  # yTST <- y 
+  
+  n <- nrow(X)
+  #X <- data[,-(1:6)]
+  X2 <- X
+  XM <- as.matrix(X[,1:IndMa])        
+  Xm <- as.matrix(X[,-c(1:IndMa)])    
+  p <- dim(Xm)[2]
+  
+  i <- 1
+  tf <- matrix(NA,nrow=dim(XM)[1],ncol=dim(XM)[2])
+  
+  for(i in 1:IndMa)      
+  {
+    y <- XM[,i]  
+    fit.t <- lm(y~Xm-1)
+    #pred <- as.matrix(Xm)%*%fit.t$coefficients
+    res <- fit.t$residuals #y-pred  
+    #cor(y,pred)
+    tf[,i] <- res
+    cat("Step 1: Macro-regression for ",i)
+  }
+  
+  
+  tf.sd <- scale(tf) 
+  XM2 <- tf.sd
+  X[,c(1:IndMa)] <- XM2   
+  
+  X <- as.matrix(X)
+  
   x <- X[test, ]  
   y <- Y[test]          
   y <- as.vector(y)
@@ -229,8 +271,8 @@ fit.LASSOOPM <- function(Y, X, LAMBDA, ncores, test, train){
   yte <- Y[train]   
   k=1
   
-  xTRN <- xte  
-  yTRN <- yte  
+  xTRN <- xte 
+  yTRN <- yte 
   
   xTST <- x 
   yTST <- y 
@@ -263,27 +305,3 @@ fit.LASSOOPM <- function(Y, X, LAMBDA, ncores, test, train){
   return(out)
 }
   
-
-##################################################################################
-########################  USE OF THE FUNCTION ####################################
-##################################################################################
-
-
-
-load("data.rda")
-phenotypes2 <- Macro.micro_2_test
-data <- phenotypes2   
-Ymat <- data[, 1:6]
-X    <- data[, -c(1:6)]
-test <- 121:277
-train <- 1:120
-
-out <- fit.LASSOOPM(Ymat[, 2], X, LAMBDA = 0.5, 1, test, train)
-
-
-
-#################################################################################
-#################################################################################
-
-
-
