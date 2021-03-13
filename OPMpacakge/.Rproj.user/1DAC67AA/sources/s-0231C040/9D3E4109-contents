@@ -1,4 +1,4 @@
-Package: OPM
+Package: OPMpackage
 Type: Package
 Title: This package does supervised binary classification where the predictors have both Macro and Microvariables
 Version: 0.1.0
