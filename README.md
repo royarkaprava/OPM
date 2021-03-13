@@ -9,3 +9,5 @@ At the end of each of those files there is an example usage of the function.
 To install the package use the following R command
 
 devtools::install_github("royarkaprava/OPM/OPMpackage")
+
+Open the Usage.R file. The first two lines will install and load the package. After that you need to download the simulated data.rda file separately and put the path in setwd("") to load the data and run the functions.
