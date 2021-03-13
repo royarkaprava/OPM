@@ -324,7 +324,8 @@ fit.ALASSOOPM <- function(Y, X, LAMBDA, ncores, test, train, IndMa){
   XM2 <- tf.sd
   X[,c(1:IndMa)] <- XM2   
   
-  dim(X)
+  X <- as.matrix(X)
+  
   x <- X[test, ]  
   y <- Y[test]          
   y <- as.vector(y)
@@ -366,28 +367,3 @@ fit.ALASSOOPM <- function(Y, X, LAMBDA, ncores, test, train, IndMa){
   return(out)
   
 }
-
-##################################################################################
-########################  USE OF THE FUNCTION ####################################
-##################################################################################
-
-
-
-load("data.rda")
-phenotypes2 <- Macro.micro_2_test
-data <- phenotypes2   
-Ymat <- data[, 1:6]
-X    <- data[, -c(1:6)]
-test <- 121:277
-train <- 1:120
-IndMa <- 20
-
-out <- fit.ALASSOOPM(Ymat[, 2], X, LAMBDA = 0.5, ncores = 1, test, train, IndMa)
-
-  
-
-#################################################################################
-#################################################################################
-
-
-
