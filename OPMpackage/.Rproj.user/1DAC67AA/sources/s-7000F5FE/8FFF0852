@@ -1,24 +1,24 @@
 {
     "id": "8FFF0852",
-    "path": "~/GitHub/OPM/OPMpacakge/NAMESPACE",
+    "path": "~/GitHub/OPM/OPMpackage/NAMESPACE",
     "project_path": "NAMESPACE",
     "type": "r_namespace",
-    "hash": "2470110136",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1615644862358.0,
     "source_on_save": false,
     "relative_order": 4,
     "properties": {
-        "cursorPosition": "9,16",
+        "cursorPosition": "0,0",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1615644985,
+    "lastKnownWriteTime": 1615648758,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1615644985202,
-    "read_only": true,
+    "last_content_update": 1615648758736,
+    "read_only": false,
     "read_only_alternatives": []
 }
