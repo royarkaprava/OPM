@@ -1,14 +1,21 @@
 # OPM
+Software to implement the computing described in:
+
 Combining phenotypic and genomic data to improve prediction of binary traits
+By Jarquin, Roy, Clarke, and Ghoshal.
 
-Each folder of AENOPM, ALASSOOPM, RAWOPM, and SCADOPM contain the R code for the respective case. We have added the OPMpackage folder with R package for easier use.
+Each folder AENOPM, ALASSOOPM, SCADOPM, and RAWOPM, contains the R code for the cases adaptive elastic net with the one-pass method, adaptive LASSO with the one-pass method, smoothly clipped absolute deviation with the one-pass method, and the raw data with the one-pass method. We have also added the OPMpackage folder for easier use.
 
-To install the package use the following R command
+To install the package use the following R command:
 
+install.packages(devtools)
 devtools::install_github("royarkaprava/OPM/OPMpackage")
 
-Open the Usage.R file. The first two lines may also be used to install and load the package. After that you need to download the simulated data.rda or the real data from "OPM\Realdata" folder separately and edit the line load("path to the data") in Usage.R accordingly. Alternatively one may "clone" this github folder and use the Usage.R directly. The coded paths will work fine then.
+Next, open the Usage.R file. (The first two lines of this script may also be used to install and load OPMpackage.) After that, you must download the simulated data.rda or the real data from "OPM\Realdata" folder separately and edit the line load("path to the data") in Usage.R accordingly. Alternatively, one may "clone" this github folder and use the
+Usage.R directly. The coded paths should work fine then.
 
-The data is from 
+The real data is from:
 
-Liang, Zhikai, Yumou Qiu, and James C. Schnable. "Genome–Phenome Wide Association in Maize and Arabidopsis Identifies a Common Molecular and Evolutionary Signature." Molecular plant 13.6 (2020): 907-922.
+Liang, Zhikai, Yumou Qiu, and James C. Schnable. &quot;Genome–Phenome Wide
+Association in Maize and Arabidopsis Identifies a Common Molecular and Evolutionary
+Signature.&quot; Molecular plant 13.6 (2020): 907-922.
