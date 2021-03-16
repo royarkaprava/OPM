@@ -1,4 +1,5 @@
 #####################Installation################################
+install.packages(devtools)
 devtools::install_github("royarkaprava/OPM/OPMpackage")
 library(OPMpackage)
 #########################################################
