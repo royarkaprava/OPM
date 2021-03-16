@@ -1,7 +1,7 @@
 # OPM
 Combining phenotypic and genomic data to improve prediction of binary traits
 
-Each folder contain the R code for the respective case. We have added OPMpackage folder with R package for easier use.
+Each folder of AENOPM, ALASSOOPM, RAWOPM, and SCADOPM contain the R code for the respective case. We have added OPMpackage folder with R package for easier use.
 
 To install the package use the following R command
 
