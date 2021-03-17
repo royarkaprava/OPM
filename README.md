@@ -12,7 +12,7 @@ install.packages(devtools)
 
 devtools::install_github("royarkaprava/OPM/OPMpackage")
 
-Next, open the Usage.R file. (The first three lines of this script may also be used to install and load OPMpackage.) After that, you must download the simulated data.rda or the real data from "OPM\Realdata" folder separately and edit the line load("path to the data") in Usage.R accordingly. Alternatively, one may "clone" this github folder and use the
+Next, open the Usage.R file. (The first three lines of this script may also be used to install and load OPMpackage.) After that, you must download the simulated from "OPM\Simulated data" or the real data from "OPM\Realdata" folder separately and edit the line load("path to the data") in Usage.R accordingly. Alternatively, one may "clone" this github folder and use the
 Usage.R directly. The coded paths should work fine then.
 
 The real data is from:
