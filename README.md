@@ -1,13 +1,22 @@
 # OPM
+Software to implement the computing described in:
+
 Combining phenotypic and genomic data to improve prediction of binary traits
+By Jarquin, Roy, Clarke, and Ghoshal.
 
-Each folder contain the R code for the respective case. In the first part of the code we have the function with full description of the input and output variables. 
+Each folder AENOPM, ALASSOOPM, SCADOPM, and RAWOPM, contains the R code for the cases adaptive elastic net with the one-pass method, adaptive LASSO with the one-pass method, smoothly clipped absolute deviation with the one-pass method, and the raw data with the one-pass method. We have also added the OPMpackage folder for easier use.
 
-At the end of each of those files there is an example usage of the function. 
+To install the package use the following R command:
 
-
-To install the package use the following R command
+install.packages(devtools)
 
 devtools::install_github("royarkaprava/OPM/OPMpackage")
 
-Open the Usage.R file. The first two lines will install and load the package. After that you need to download the simulated data.rda file separately and put the path in setwd("") to load the data and run the functions.
+Next, open the Usage.R file. (The first three lines of this script may also be used to install and load OPMpackage.) After that, you must download the simulated data.rda or the real data from "OPM\Realdata" folder separately and edit the line load("path to the data") in Usage.R accordingly. Alternatively, one may "clone" this github folder and use the
+Usage.R directly. The coded paths should work fine then.
+
+The real data is from:
+
+Liang, Zhikai, Yumou Qiu, and James C. Schnable. &quot;Genome–Phenome Wide
+Association in Maize and Arabidopsis Identifies a Common Molecular and Evolutionary
+Signature.&quot; Molecular plant 13.6 (2020): 907-922.
